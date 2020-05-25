@@ -1,5 +1,6 @@
 minikube
-  ```minikube start```
+ 
+ ```minikube start```
   
   ```minikube delete``` : Completely delete the local minikube, a minikube start command will restart it
   
