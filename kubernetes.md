@@ -9,7 +9,6 @@
   ```kubectl get nodes```\
   ```kubectl get deployments```\
   ```kubectl version```\
-    
   **deployment**\
   ```kubectl create deployment {deployment} --image={imageSource}```
   
