@@ -21,5 +21,6 @@
   
   **network**\
   ```kubectl proxy``` : Expose the pods private network (without using ingress etc)\
+    This means you can access it via http://localhost:8001/api/v1/namespaces/default/pods/{podName}/proxy/ - I don't know how it mpas different ports via the proxy yet
   ```kubectl expose deployment/{DeploymentName} --type="NodePort" --port {port}```
   
