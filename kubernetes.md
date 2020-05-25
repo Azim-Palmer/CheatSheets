@@ -22,5 +22,6 @@
   **network**\
   ```kubectl proxy``` : Expose the pods private network (without using ingress etc)\
     This means you can access it via http://localhost:8001/api/v1/namespaces/default/pods/{podName}/proxy/ - I don't know how it mpas different ports via the proxy yet\
-  ```kubectl expose deployment/{DeploymentName} --type="NodePort" --port {port}```
+  ```kubectl expose deployment/{DeploymentName} --type="NodePort" --port {port}```\
+  ```minikube service {ServiceName} --url``` : **Required on Windows** Starts a service with a configured nodeport on Windows - YOU WONT BE ABLE TO ACCESS IT WITHOUT THIS ON WINDOWS\
   
