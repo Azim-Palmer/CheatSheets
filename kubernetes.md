@@ -20,6 +20,6 @@
   ```kubectl exec -ti {PodName} bash``` : starts bash inside a pod\
   
   **network**\
-  ```kubectl proxy``` : Expose the pods private network (without using ingress etc)
+  ```kubectl proxy``` : Expose the pods private network (without using ingress etc)\
   ```kubectl expose deployment/{DeploymentName} --type="NodePort" --port {port}```
   
