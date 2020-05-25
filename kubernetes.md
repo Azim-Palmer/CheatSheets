@@ -11,7 +11,7 @@
   ```kubectl get deployments```\
   ```kubectl version```\
     
-  **deployment**
+  **deployment**\
   ```kubectl create deployment {deployment} --image={imageSource}```
   
   **network**
