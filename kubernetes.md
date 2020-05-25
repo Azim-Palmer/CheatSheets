@@ -21,5 +21,5 @@
   
   **network**\
   ```kubectl proxy``` : Expose the pods private network (without using ingress etc)
-  ```kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port {port}```
+  ```kubectl expose deployment/{DeploymentName} --type="NodePort" --port {port}```
   
