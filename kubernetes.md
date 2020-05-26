@@ -21,7 +21,7 @@
   **Config**\
   ```kubectl config get-contexts``` : # display list of contexts\
   ```kubectl config current-context``` : # display the current-context\
-  ```kubectl config use-context {ClusterName} : sets kubectl's current context (useful when you have a local and remote cluster)\
+  ```kubectl config use-context {ClusterName}``` : sets kubectl's current context (useful when you have a local and remote cluster)\
   
   **network**\
   ```kubectl proxy``` : Expose the pods private network (without using ingress etc)\
