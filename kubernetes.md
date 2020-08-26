@@ -12,6 +12,7 @@
   ```kubectl version```\
   **deployment**\
   ```kubectl create deployment {deployment} --image={imageSource}```
+  ```kubectl apply -f {filename}``` : Applies a particular file
   **Troubleshooting**
   ```kubectl get``` : list resources\
   ```kubectl describe``` : show detailed information about a resource\
