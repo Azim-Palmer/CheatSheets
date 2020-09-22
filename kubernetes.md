@@ -33,7 +33,7 @@
 
 **FAQ**\
  **How do I have Kubernetes use my local hard drive when I want to persist stuff?**
- 1. First declare the mapping in Minikube - run as admin ```minikube mount {hostPath}:{nodeMountPath}``` e.g ``````minikube mount C:\temp\minikube:/mnt/test```
+ 1. First declare the mapping in Minikube - run as admin ```minikube mount {hostPath}:{nodeMountPath}``` e.g ```minikube mount C:\temp\minikube:/mnt/test```
  2. Create a PersistentVolume mapping to that 
  ```
  apiVersion: v1
