@@ -30,6 +30,59 @@
   ```minikube service {ServiceName} --url``` : **Required on Windows** Starts a service with a configured nodeport on Windows - YOU WONT BE ABLE TO ACCESS IT WITHOUT THIS ON WINDOWS\
   ```kubectl port-forward service/{serviceName} {port}```
 
+
+**FAQ**\
+ **How do I have Kubernetes use my local hard drive when I want to persist stuff?**
+ 1. First declare the mapping in Minikube - run as admin ```minikube mount {hostPath}:{nodeMountPath}``` e.g ``````minikube mount C:\temp\minikube:/mnt/test```
+ 2. Create a PersistentVolume mapping to that 
+ ```
+ apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: example-pv
+spec:
+  capacity:
+    storage: 100Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
+    path: /mnt/test
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: localTest
+          operator: In
+          values:
+          - "yes"
+```
+
+3. - Create the associated claim
+```apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: local-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+```
+      
+4. Finally reference it in the container as a volume and volumeMount, use mountPath to direct where on the node the storage should be located
+```  volumeMounts:
+       - mountPath: "/var/lib/grafana"
+         name : task-pv-claim
+      volumes:
+        - name: task-pv-claim
+          persistentVolumeClaim:
+            claimName: task-pv-claim
+```
   
 **Dashboard**
 ```kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')```
