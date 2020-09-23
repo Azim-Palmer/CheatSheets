@@ -33,8 +33,8 @@
 
 **FAQ**\
 **How do I expose a service running on localhost to a node?**
-ssh into minikube (you might need to open Hyper-V manager and launch it with username root) run ```ping host.minikube.internal``` and use the ip it's using there
- **How do I access a service locally?**
+ssh into minikube (you might need to open Hyper-V manager and launch it with username root) run ```ping host.minikube.internal``` and use the ip it's using there\
+**How do I access a service locally?**
  run ```minikube ip``` and navigate to that ip plus the nodePort specified in the service
  **How do I have Kubernetes use my local hard drive when I want to persist stuff?**
  1. First declare the mapping in Minikube - run as admin ```minikube mount {hostPath}:{nodeMountPath}``` e.g ```minikube mount C:\temp\minikube:/mnt/test```
